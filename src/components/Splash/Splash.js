@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Splash extends Component {
 
-    onClickBegin = () => {
-        this.props.history.push('/feelings');
-    }
 
 	render() {
 		return (
 			<div>
                 <h2>Hello! Let's get started on some feedback.</h2>
-                <button onClick={this.onClickBegin}>Begin</button>
+                <Link to="/feedback-feelings"><button>Begin</button></Link>
 			</div>
 		);
 	}

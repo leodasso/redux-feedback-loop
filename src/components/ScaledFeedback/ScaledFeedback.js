@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Review from '../Review/Review';
 
 /** Scaled Feedback is a generic component which can handle any numerical feedback.
  * For now I'm just hard coding the range as 1-5. The title and description are passed in as props.
@@ -31,21 +33,19 @@ class ScaledFeedback extends Component {
 	// Returns an array of JSX radio button inputs.
 	createRadioButtons = (start, qty, name) => {
 
-		// yes I know we're keepings things immutable, but this array is function scoped.
-		// If you are able to get different results with the same inputs to this function,
-		// I'll do a polka dance in my underwear in front of the entire student body.
 		let radioArray = [];
 
 		for (let i = start; i < start + qty; i++) {
 			radioArray.push(
-			<span key={i}>
-				<input 
-					type="radio" 
-					name={name} 
-					value={i} 
-					onChange={this.onInputChanged}
-				/>{i}
-			</span>);
+				<span key={i}>
+					<input 
+						type="radio" 
+						name={name} 
+						value={i} 
+						onChange={this.onInputChanged}
+					/>{i}
+				</span>
+			);
 		}
 
 		return radioArray;
@@ -62,6 +62,9 @@ class ScaledFeedback extends Component {
 					<br/>
 					<button>Submit</button>
 				</form>
+				<Review />
+				<Link to={this.props.back}><button>Back</button></Link>
+				<Link to={this.props.next}><button>Next</button></Link>
 			</div>
 		);
 	}

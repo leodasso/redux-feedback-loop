@@ -4,6 +4,7 @@ import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import Review from '../Review/Review';
 import ScaledFeedback from '../ScaledFeedback/ScaledFeedback';
+import Splash from '../Splash/Splash';
 
 // The routes in App are rendered a little bit differently, using 
 // react-router's 'render' prop. This way I can pass props into just one 
@@ -17,11 +18,29 @@ class App extends Component {
 	render() {
 
 
-		let feelingsComponent = <ScaledFeedback 
+		let feelings = <ScaledFeedback 
 			title='Feelings' 
 			description='How are you feeling today?'
-			nameInRedux='feelings'/>;
+			nameInRedux='feelings'
+			back='/'
+			next='/feedback-understanding'
+			/>;
 
+		let understanding = <ScaledFeedback 
+			title='Understanding' 
+			description='How well did you understand the content?'
+			nameInRedux='understanding'
+			back='/feedback-feelings'
+			next='/feedback-support'
+			/>;
+
+		let support = <ScaledFeedback 
+			title='Support' 
+			description='How well do you feel supported by the staff today?'
+			nameInRedux='support'
+			back='/feedback-understanding'
+			next='/'
+			/>;
 
 		return (
 			<Router>
@@ -32,14 +51,24 @@ class App extends Component {
 					</header>
 					<br />
 
-					{/* How are you feeling feedback page */}
+					<Route exact path='/' component={Splash} />
+
 					<Route
 						path='/feedback-feelings'
-						render={() => feelingsComponent }
+						render={() => feelings }
+					/>
+
+					<Route
+						path='/feedback-understanding'
+						render={() => understanding }
+					/>
+
+					<Route
+						path='/feedback-support'
+						render={() => support }
 					/>
 
 
-					<Review />
 				</div>
 			</Router>
 		);
