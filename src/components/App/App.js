@@ -17,8 +17,10 @@ class App extends Component {
 	render() {
 
 
-		let feelingsComponent = <ScaledFeedback title='Feelings' 
-			description='How are you feeling today?'/>;
+		let feelingsComponent = <ScaledFeedback 
+			title='Feelings' 
+			description='How are you feeling today?'
+			nameInRedux='feelings'/>;
 
 
 		return (

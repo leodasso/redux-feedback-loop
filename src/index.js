@@ -7,12 +7,12 @@ import { Provider } from 'react-redux'
 import { combineReducers, createStore } from 'redux';
 
 /**This is a reducer for all the feedback in a session. 
- * For action `SET_PROPERTY`, action should have a `propertyName` and 
+ * For action `FEEDBACK_UPDATE`, action should have a `propertyName` and 
  * a `propertyValue`.
 */
 let feedback = (state = {}, action) => {
 
-    if (action.type==='SET_PROPERTY') {
+    if (action.type==='FEEDBACK_UPDATE') {
         return {...state, [action.propertyName]: action.propertyValue};
     }
     return state;
