@@ -6,10 +6,11 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux'
 import { combineReducers, createStore } from 'redux';
 
-/**This is a reducer for all the feedback in a session. 
- * For action `FEEDBACK_UPDATE`, action should have a `propertyName` and 
- * a `propertyValue`.
-*/
+// The path the user will take when moving through the feedback
+let navPathway = [ 'landing', 'feelings', 'understanding', 'support', 'comments', 'confirmation'];
+
+/**This is a reducer for all the feedback in a session. For action `FEEDBACK_UPDATE`, 
+ * action should have a `propertyName` and  a `propertyValue`. */
 let feedback = (state = {}, action) => {
 
     if (action.type==='FEEDBACK_UPDATE') {
@@ -18,8 +19,33 @@ let feedback = (state = {}, action) => {
     return state;
 }
 
+let userPlace = (state = 0, action) => {
+
+    switch (action.type) {
+
+        case 'NEXT_PAGE': 
+            // if already at the last page, return to the first page.
+            if (state >= navPathway.length - 1) {
+                return 0;
+            }
+            return state + 1;
+
+        case 'PREV_PAGE':
+            // if already at the first page, return the last page
+            if (state <= 0) {
+                return navPathway.length - 1;
+            }
+            return state - 1;
+
+        default: return state;
+    }
+}
+
 const storeInstance = createStore(
-    combineReducers({feedback})
+    combineReducers({
+        feedback,
+        userPlace,
+    })
 )
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
