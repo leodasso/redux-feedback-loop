@@ -38,14 +38,14 @@ class ScaledFeedback extends Component {
 
 		for (let i = start; i < start + qty; i++) {
 			radioArray.push(
-			<>
+			<span key={i}>
 				<input 
 					type="radio" 
 					name={name} 
 					value={i} 
 					onChange={this.onInputChanged}
 				/>{i}
-			</>);
+			</span>);
 		}
 
 		return radioArray;
