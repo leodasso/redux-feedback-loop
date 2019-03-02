@@ -18,8 +18,7 @@ class App extends Component {
 
 
 		let feelingsComponent = <ScaledFeedback title='Feelings' 
-			description='How are you feeling today?'
-			placeholder='Feelings?'/>;
+			description='How are you feeling today?'/>;
 
 
 		return (
