@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Review from '../Review/Review';
-import './ScaledFeedback.css';
 
 // Material UI
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import Radio from '@material-ui/core/Radio';
+import Button from '@material-ui/core/Button';
 
 /** Scaled Feedback is a generic component which can handle any numerical feedback.
  * For now I'm just hard coding the range as 1-5. The title, description, redux store, etc are passed in as props. */
@@ -68,8 +68,12 @@ class ScaledFeedback extends Component {
 					</form>
 					</Card>
 				<Review />
-				<Link to={this.props.back}><button>Back</button></Link>
-				<Link to={this.props.next}><button>Next</button></Link>
+				<Link to={this.props.back}>
+					<Button className="nav-button">Back</Button>
+				</Link>
+				<Link to={this.props.next}>
+					<Button  className="nav-button">Next</Button>
+				</Link>
 			</div>
 		);
 	}
