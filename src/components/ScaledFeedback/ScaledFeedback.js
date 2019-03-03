@@ -21,7 +21,7 @@ class ScaledFeedback extends Component {
 	// Returns true/false based on if the given index (1-5) is already selected.
 	conditionalCheckedAttribute = index => {
 		let currentRating = this.props.feedback[this.props.nameInRedux];
-		return (Number(currentRating) == index);
+		return Number(currentRating) === index;
 	}
 
 	// Returns an array of JSX radio button inputs.
