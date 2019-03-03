@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import './Review.css';
 
+// material UI
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 class Review extends Component {
 
@@ -39,9 +43,9 @@ class Review extends Component {
     // otherwise returns a blocked button with 'incomplete'
     renderSubmitButton = () => {
         if (!this.allFeedbackComplete()) {
-            return <button disabled>Incomplete</button>;
+            return <Button variant="contained" disabled>Incomplete</Button>;
         }
-        return <button onClick={this.onSubmit}>Submit</button>;
+        return <Button variant="contained" color="primary" onClick={this.onSubmit}>Submit</Button>;
     }
 
 
@@ -54,12 +58,12 @@ class Review extends Component {
 
         // Review of the full feedback thus far. Pulls the values from the feedback object in redux.
         return (
-            <div>
-                <h3>Review Your Feedback</h3>
-                <p>Feelings: {this.props.feedback.feelings}</p>
-                <p>Understanding: {this.props.feedback.understanding}</p>
-                <p>Support: {this.props.feedback.support}</p>
-                <p>Comments: {this.props.feedback.comments}</p>
+            <div className="Review">
+                <Typography variant="h5">Review Your Feedback</Typography>
+                <Typography variant="body1">Feelings: {this.props.feedback.feelings}</Typography>
+                <Typography variant="body1">Understanding: {this.props.feedback.understanding}</Typography>
+                <Typography variant="body1">Support: {this.props.feedback.support}</Typography>
+                <Typography variant="body1">Comments: {this.props.feedback.comments}</Typography>
                 {this.renderSubmitButton()}
             </div>
         );
