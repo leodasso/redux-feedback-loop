@@ -6,10 +6,17 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux'
 import { combineReducers, createStore } from 'redux';
 
+const defaultState = {
+    feelings: 0,
+    understanding: 0,
+    support: 0,
+    comments: '',
+}
+
 
 /**This is a reducer for all the feedback in a session. For action `FEEDBACK_UPDATE`, 
  * action should have a `propertyName` and  a `propertyValue`. */
-let feedback = (state = {}, action) => {
+let feedback = (state = defaultState, action) => {
 
     if (action.type==='FEEDBACK_UPDATE') {
         return {...state, [action.propertyName]: action.propertyValue};
