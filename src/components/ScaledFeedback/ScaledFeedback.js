@@ -23,22 +23,8 @@ class ScaledFeedback extends Component {
 		})
 	}
 
-	onSubmit = event => {
-
-		// Prevent the default action for form submission - reloading the page
-		event.preventDefault();
-
-		// Dispatch the change to the redux state
-		this.props.dispatch({
-			type: 'FEEDBACK_UPDATE',
-			propertyName: this.props.nameInRedux,
-			propertyValue: this.state.rating,
-		})
-	}
-
 	// Returns true/false for a radio button of the given index if it's already selected.
 	conditionalCheckedAttribute = index => {
-
 		let currentRating = this.props.feedback[this.props.nameInRedux];
 		return (Number(currentRating) == index);
 	}
@@ -49,7 +35,6 @@ class ScaledFeedback extends Component {
 		let radioArray = [];
 
 		for (let i = start; i < start + qty; i++) {
-
 
 			radioArray.push(
 				<span key={i}>
