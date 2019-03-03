@@ -13,7 +13,7 @@ class CommentFeedback extends Component {
     }
 
     onSubmit = () => {
-        
+
         // Send the full feedback object to the server with axios
         axios.post('/feedback', this.props.feedback)
 
@@ -37,9 +37,23 @@ class CommentFeedback extends Component {
     }
 
 
+    renderSubmitButton = () => {
+
+        if (!this.allFeedbackComplete()) {
+            return 'Incomplete';
+        }
+        return <button onClick={this.onSubmit}>Submit</button>;
+    }
+
+    allFeedbackComplete = () => {
+        if (this.props.feedback.feelings === 0) return false;
+        if (this.props.feedback.understanding === 0) return false;
+        if (this.props.feedback.support === 0) return false;
+        if (this.props.feedback.comments === '') return false;
+        return true;
+    }
 
 	render() {
-
 
         if (this.state.submitted) {
             return <Redirect to='/thanks'/>
@@ -51,7 +65,7 @@ class CommentFeedback extends Component {
                 <input type="text" onChange={this.onInputChanged}/>
                 <Review />
 				<Link to={this.props.back}><button>Back</button></Link>
-				<button onClick={this.onSubmit}>Submit</button>
+                {this.renderSubmitButton()}
 			</div>
             
 		);
