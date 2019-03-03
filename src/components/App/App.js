@@ -4,6 +4,7 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import ScaledFeedback from '../ScaledFeedback/ScaledFeedback';
 import Splash from '../Splash/Splash';
 import CommentFeedback from '../CommentFeedback/CommentFeedback';
+import Thanks from '../Thanks/Thanks';
 
 // The routes in App are rendered a little bit differently, using 
 // react-router's 'render' prop. This way I can pass props into just one 
@@ -56,26 +57,15 @@ class App extends Component {
 
 					<Route exact path='/' component={Splash} />
 
-					<Route
-						path='/feelings'
-						render={() => feelings }
-					/>
+					<Route path='/feelings' render={() => feelings } />
 
-					<Route
-						path='/understanding'
-						render={() => understanding }
-					/>
+					<Route path='/understanding' render={() => understanding } />
 
-					<Route
-						path='/support'
-						render={() => support }
-					/>
+					<Route path='/support' render={() => support } />
 
-					<Route
-						path='/comments'
-						render = {() => comments}
-					/>
+					<Route path='/comments' render = {() => comments} />
 
+					<Route path='/thanks' component={Thanks}/>
 
 				</div>
 			</Router>
