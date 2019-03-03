@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import './Admin.css';
+
+// Material UI
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 
 class Admin extends Component {
@@ -51,35 +62,35 @@ class Admin extends Component {
     render() {
 
         return (
-            <div>
-                <h2>Admin</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Feeling</th>
-                            <th>Comprehension</th>
-                            <th>Support</th>
-                            <th>Comments</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <Paper className="Admin">
+                <Typography variant="h4">Admin</Typography>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Feeling</TableCell>
+                            <TableCell>Comprehension</TableCell>
+                            <TableCell>Support</TableCell>
+                            <TableCell>Comments</TableCell>
+                            <TableCell>Delete</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
                         {this.state.feedback.map( item => (
-                            <tr key={item.id}>
-                                <td>{item.feeling}</td>
-                                <td>{item.understanding}</td>
-                                <td>{item.support}</td>
-                                <td>{item.comments}</td>
-                                <td>
-                                    <button onClick={this.deleteFeedback(item)}>
+                            <TableRow key={item.id}>
+                                <TableCell>{item.feeling}</TableCell>
+                                <TableCell>{item.understanding}</TableCell>
+                                <TableCell>{item.support}</TableCell>
+                                <TableCell>{item.comments}</TableCell>
+                                <TableCell>
+                                    <Button onClick={this.deleteFeedback(item)}>
                                         X
-                                    </button>
-                                </td>
-                            </tr>
+                                    </Button>
+                                </TableCell>
+                            </TableRow>
                         ))}
-                    </tbody>
-                </table>
-            </div>
+                    </TableBody>
+                </Table>
+            </Paper>
         );
     }
 }
