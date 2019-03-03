@@ -14,7 +14,7 @@ class CommentFeedback extends Component {
         console.log('feedback submitted');
 
         // Send the full feedback object to the server with axios
-        // axios.post()
+        axios.post('/feedback', this.props.feedback);
         console.log(this.props);
 
         // redirect the user to the 'feedback submitted' page
