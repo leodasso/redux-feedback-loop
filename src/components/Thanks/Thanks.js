@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+// Material UI
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
 class CommentFeedback extends Component {
 
 
@@ -9,8 +13,12 @@ class CommentFeedback extends Component {
 
 		return (
 			<div>
-                <h1>Thanks!</h1>
-                <Link to='/'><button>Return</button></Link>
+                <Typography variant="h1">Thanks!</Typography>
+				<Typography variant="h5">Your feedback was submitted.</Typography>
+				<br/>
+                <Link to='/'>
+					<Button variant="outlined">Submit Another Feedback</Button>
+				</Link>
 			</div>
             
 		);
