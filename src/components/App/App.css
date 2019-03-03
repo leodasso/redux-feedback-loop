@@ -21,3 +21,10 @@
 .nav-button {
   margin: 12px 32px;
 }
+
+
+.nav-container {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+}

@@ -36,11 +36,14 @@ class CommentFeedback extends Component {
                         variant="outlined"
                         helperText="Any comments you want to leave?"
                     />
+                    <div className="nav-container">
+                        <Link to={this.props.back}>
+                            <Button className="nav-button">Back</Button>
+                        </Link>
+                    </div>
                 </Card>
                 <Review />
-				<Link to={this.props.back}>
-                    <Button className="nav-button">Back</Button>
-                </Link>
+
 			</div>
             
 		);

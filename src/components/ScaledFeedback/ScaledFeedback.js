@@ -66,14 +66,17 @@ class ScaledFeedback extends Component {
 					<form>
 						{this.createRadioButtons(1, 5, 'rating')}
 					</form>
+					<br/>
+					<div className="nav-container">
+						<Link to={this.props.back}>
+							<Button className="nav-button">Back</Button>
+						</Link>
+						<Link to={this.props.next}>
+							<Button  className="nav-button">Next</Button>
+						</Link>
+					</div>
 					</Card>
 				<Review />
-				<Link to={this.props.back}>
-					<Button className="nav-button">Back</Button>
-				</Link>
-				<Link to={this.props.next}>
-					<Button  className="nav-button">Next</Button>
-				</Link>
 			</div>
 		);
 	}
