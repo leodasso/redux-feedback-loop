@@ -39,7 +39,7 @@ class Review extends Component {
     // otherwise returns a blocked button with 'incomplete'
     renderSubmitButton = () => {
         if (!this.allFeedbackComplete()) {
-            return 'Incomplete';
+            return <button disabled>Incomplete</button>;
         }
         return <button onClick={this.onSubmit}>Submit</button>;
     }
