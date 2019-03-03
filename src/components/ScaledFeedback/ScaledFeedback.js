@@ -4,16 +4,11 @@ import { Link } from 'react-router-dom';
 import Review from '../Review/Review';
 
 /** Scaled Feedback is a generic component which can handle any numerical feedback.
- * For now I'm just hard coding the range as 1-5. The title and description are passed in as props.
- */
+ * For now I'm just hard coding the range as 1-5. The title, description, redux store, etc are passed in as props. */
 class ScaledFeedback extends Component {
 
-	state = {
-		rating: '3',
-	}
-
+	// When the user selects a radio button, we want to update the redux store with its value.
 	onInputChanged = event => {
-		this.setState({rating: event.target.value});
 
 		// Dispatch the change to the redux state
 		this.props.dispatch({
@@ -23,13 +18,15 @@ class ScaledFeedback extends Component {
 		})
 	}
 
-	// Returns true/false for a radio button of the given index if it's already selected.
+	// Returns true/false based on if the given index (1-5) is already selected.
 	conditionalCheckedAttribute = index => {
 		let currentRating = this.props.feedback[this.props.nameInRedux];
 		return (Number(currentRating) == index);
 	}
 
 	// Returns an array of JSX radio button inputs.
+	// Start: what number the array starts at. For example, 1, 2, 3, 4 5 this would be 1
+	// qty: how many buttons
 	createRadioButtons = (start, qty, name) => {
 
 		let radioArray = [];
