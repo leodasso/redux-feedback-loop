@@ -2,5 +2,8 @@
 [X] move 'submit' button to the feedback preview component
 [X] have submit be an inactive button instead of text when it's not ready yet
 
-[] create admin component
+[X] create admin component
+[] make delete button functional
 [] delete route
+
+[] install material UI

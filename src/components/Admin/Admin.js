@@ -11,6 +11,12 @@ class Admin extends Component {
 
 
     componentDidMount() {
+        // When the component mounts, we want to get all the feedback from the server
+        // so it can be displayed on the table.
+        this.refreshTable();
+    }
+
+    refreshTable = () => {
 
         axios.get('/feedback')
 
@@ -22,6 +28,22 @@ class Admin extends Component {
         .catch( error => {
             alert('There was a problem getting feedback info from the server. Try again in a few minutes!');
             console.log('error with GET route /feedback', error);
+        })
+    }
+
+
+    // Deletes the given feedback item from the server. This function is
+    // curried so it can be used with an event listener.
+    deleteFeedback = feedback => () => {
+
+        console.log('delete', feedback);
+        axios.delete('/feedback/' + feedback.id)
+
+        .then(this.refreshTable)
+
+        .catch(error => {
+            alert('There was a problem communicating with the server. Try again in a few minutes!');
+            console.log('error with DELETE route /feedback/:id', error);
         })
     }
 
@@ -48,7 +70,11 @@ class Admin extends Component {
                                 <td>{item.understanding}</td>
                                 <td>{item.support}</td>
                                 <td>{item.comments}</td>
-                                <td>X</td>
+                                <td>
+                                    <button onClick={this.deleteFeedback(item)}>
+                                        X
+                                    </button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>

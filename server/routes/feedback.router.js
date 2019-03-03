@@ -27,16 +27,25 @@ router.post('/', (req, resp) => {
 
     .then( response => {resp.sendStatus(201)})
 
-    .catch( error => {console.log('error with feedback POST', error)});
+    .catch( error => {
+        console.log('error with feedback POST', error);
+        resp.sendStatus(500);
+    });
 })
 
 
 router.delete('/:id', (req, resp) => {
 
-    console.log(req.params);
-    // TODO
+    pool.query(`
+        DELETE FROM "feedback"
+        WHERE "id" = $1;`, [req.params.id])
 
+    .then( response => {resp.sendStatus(201)})
 
-})
+    .catch( error => {
+        console.log('error with feedback DELETE', error);
+        resp.sendStatus(500);
+    });
+});
 
 module.exports = router;
