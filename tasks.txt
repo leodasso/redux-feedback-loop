@@ -3,7 +3,7 @@
 [X] have submit be an inactive button instead of text when it's not ready yet
 
 [X] create admin component
-[] make delete button functional
-[] delete route
+[X] make delete button functional
+[X] delete route
 
 [] install material UI

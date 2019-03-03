@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
+// Material UI stuff
+import Typography from '@material-ui/core/Typography';
+
 import ScaledFeedback from '../ScaledFeedback/ScaledFeedback';
 import Splash from '../Splash/Splash';
 import CommentFeedback from '../CommentFeedback/CommentFeedback';
 import Thanks from '../Thanks/Thanks';
 import Admin from '../Admin/Admin';
+
 
 // The routes in App are rendered a little bit differently, using 
 // react-router's 'render' prop. This way I can pass props into just one 
@@ -17,7 +23,6 @@ class App extends Component {
 
 
 	render() {
-
 
 		let feelings = <ScaledFeedback 
 			title='Feelings' 
@@ -48,11 +53,20 @@ class App extends Component {
 			next='/' />
 
 		return (
+
+			<>
+			{/* Anything in the helmet tags is injected into the html head */}
+			<Helmet>
+				<title>Leo's Feedback Form</title>
+				<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+				<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+			</Helmet>
+
 			<Router>
 				<div className="App">
 					<header className="App-header">
-						<h1 className="App-title">Feedback!</h1>
-						<h4><i>Don't forget it!</i></h4>
+						<Typography variant="h2">Feedback!</Typography>
+						<Typography variant="overline">Don't forget it!</Typography>
 					</header>
 					<br />
 
@@ -72,6 +86,7 @@ class App extends Component {
 
 				</div>
 			</Router>
+			</>
 		);
 	}
 }
