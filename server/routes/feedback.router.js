@@ -6,7 +6,7 @@ router.get('/', (req, resp) => {
 
     pool.query(`SELECT * FROM "feedback";`)
 
-    .then( result => {resizeBy.send(result.rows)})
+    .then( result => {resp.send(result.rows)})
 
     .catch( error => {
         console.log('error with GET', error);
@@ -28,6 +28,15 @@ router.post('/', (req, resp) => {
     .then( response => {resp.sendStatus(201)})
 
     .catch( error => {console.log('error with feedback POST', error)});
+})
+
+
+router.delete('/:id', (req, resp) => {
+
+    console.log(req.params);
+    // TODO
+
+
 })
 
 module.exports = router;

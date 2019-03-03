@@ -5,6 +5,7 @@ import ScaledFeedback from '../ScaledFeedback/ScaledFeedback';
 import Splash from '../Splash/Splash';
 import CommentFeedback from '../CommentFeedback/CommentFeedback';
 import Thanks from '../Thanks/Thanks';
+import Admin from '../Admin/Admin';
 
 // The routes in App are rendered a little bit differently, using 
 // react-router's 'render' prop. This way I can pass props into just one 
@@ -66,6 +67,8 @@ class App extends Component {
 					<Route path='/comments' render = {() => comments} />
 
 					<Route path='/thanks' component={Thanks}/>
+
+					<Route path='/admin' component={Admin} />
 
 				</div>
 			</Router>

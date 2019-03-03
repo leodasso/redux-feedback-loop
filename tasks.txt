@@ -2,5 +2,5 @@
 [X] move 'submit' button to the feedback preview component
 [X] have submit be an inactive button instead of text when it's not ready yet
 
-[] delete route
 [] create admin component
+[] delete route
