@@ -19,7 +19,7 @@ class ScaledFeedback extends Component {
 	}
 
 	// Returns true/false based on if the given index (1-5) is already selected.
-	conditionalCheckedAttribute = index => {
+	isIndexSelected = index => {
 		let currentRating = this.props.feedback[this.props.nameInRedux];
 		return Number(currentRating) === index;
 	}
@@ -40,7 +40,7 @@ class ScaledFeedback extends Component {
 						name={name} 
 						value={i} 
 						onChange={this.onInputChanged} 
-						checked={this.conditionalCheckedAttribute(i)}
+						checked={this.isIndexSelected(i)}
 					/>{i}
 				</span>
 			);
