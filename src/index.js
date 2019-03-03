@@ -21,6 +21,11 @@ let feedback = (state = defaultState, action) => {
     if (action.type==='FEEDBACK_UPDATE') {
         return {...state, [action.propertyName]: action.propertyValue};
     }
+
+    if (action.type==='FEEDBACK_RESET') {
+        return defaultState;
+    }
+
     return state;
 }
 

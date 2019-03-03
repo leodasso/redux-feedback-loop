@@ -22,6 +22,9 @@ class CommentFeedback extends Component {
         .then( () => {
             // redirect the user to the 'feedback submitted' page
             this.setState({submitted: true});
+
+            // clear out the feedback in redux state
+            this.props.dispatch({type: 'FEEDBACK_RESET'});
         })
 
     }
