@@ -1,0 +1,6 @@
+[] comment code pass
+[] move 'submit' button to the feedback preview component
+[] have submit be an inactive button instead of text when it's not ready yet
+
+[] delete route
+[] create admin component
