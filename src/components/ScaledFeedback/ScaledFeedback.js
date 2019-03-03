@@ -15,6 +15,13 @@ class ScaledFeedback extends Component {
 	onInputChanged = event => {
 		console.log(event.target.value)
 		this.setState({rating: event.target.value});
+
+		// Dispatch the change to the redux state
+		this.props.dispatch({
+			type: 'FEEDBACK_UPDATE',
+			propertyName: this.props.nameInRedux,
+			propertyValue: event.target.value,
+		})
 	}
 
 	onSubmit = event => {
@@ -57,10 +64,9 @@ class ScaledFeedback extends Component {
 			<div>
 				<h1>{this.props.title}</h1>
 				<p>{this.props.description}</p>
-				<form onSubmit={this.onSubmit}>
+				<form>
 					{this.createRadioButtons(1, 5, 'rating')}
 					<br/>
-					<button>Submit</button>
 				</form>
 				<Review />
 				<Link to={this.props.back}><button>Back</button></Link>

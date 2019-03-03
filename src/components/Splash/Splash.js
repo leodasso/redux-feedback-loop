@@ -9,7 +9,7 @@ class Splash extends Component {
 		return (
 			<div>
                 <h2>Hello! Let's get started on some feedback.</h2>
-                <Link to="/feedback-feelings"><button>Begin</button></Link>
+                <Link to="/feelings"><button>Begin</button></Link>
 			</div>
 		);
 	}
