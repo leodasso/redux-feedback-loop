@@ -36,19 +36,29 @@ class ScaledFeedback extends Component {
 		})
 	}
 
+	// Returns true/false for a radio button of the given index if it's already selected.
+	conditionalCheckedAttribute = index => {
+
+		let currentRating = this.props.feedback[this.props.nameInRedux];
+		return (Number(currentRating) == index);
+	}
+
 	// Returns an array of JSX radio button inputs.
 	createRadioButtons = (start, qty, name) => {
 
 		let radioArray = [];
 
 		for (let i = start; i < start + qty; i++) {
+
+
 			radioArray.push(
 				<span key={i}>
 					<input 
 						type="radio" 
 						name={name} 
 						value={i} 
-						onChange={this.onInputChanged}
+						onChange={this.onInputChanged} 
+						checked={this.conditionalCheckedAttribute(i)}
 					/>{i}
 				</span>
 			);
