@@ -13,9 +13,7 @@ class CommentFeedback extends Component {
     }
 
     onSubmit = () => {
-
-        console.log('feedback submitted');
-
+        
         // Send the full feedback object to the server with axios
         axios.post('/feedback', this.props.feedback)
 

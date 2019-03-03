@@ -13,7 +13,6 @@ class ScaledFeedback extends Component {
 	}
 
 	onInputChanged = event => {
-		console.log(event.target.value)
 		this.setState({rating: event.target.value});
 
 		// Dispatch the change to the redux state

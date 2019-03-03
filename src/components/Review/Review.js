@@ -5,8 +5,6 @@ class Review extends Component {
 
     render() {
 
-        console.log(this.props.feedback);
-
         return (
             <div>
                 <h1>Review Your Feedback</h1>

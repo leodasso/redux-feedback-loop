@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import ScaledFeedback from '../ScaledFeedback/ScaledFeedback';
 import Splash from '../Splash/Splash';
 import CommentFeedback from '../CommentFeedback/CommentFeedback';
